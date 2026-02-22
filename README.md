@@ -1,43 +1,91 @@
-SharkLens 🦈
+# PolicyForge AI
 
-AI-Powered Network Threat Visualization from Wireshark Captures
+AI-powered cybersecurity policy generation platform inspired by [policy-forge-ai.base44.app](https://policy-forge-ai.base44.app).
 
-SharkLens leverages the power of AI to transform raw network traffic from Wireshark captures (.pcap files) into actionable cybersecurity insights. By analyzing packet data, it identifies potential threats and visualizes them in a threat heat map, helping security analysts prioritize risks and strengthen network defense.
+## Repository Description
 
-🔹 Features
+**PolicyForge AI** is a full-stack web application that helps organizations generate framework-aligned cybersecurity governance documentation (policy, standards, and procedures), with consultation capture and API-ready outputs.
 
-AI-driven threat detection: Automatically interprets network traffic patterns to identify suspicious activities.
+## Complete Code Stack
 
-Threat heat map: Visualizes threats with:
+### Frontend (`apps/frontend`)
+- **React 18 + Vite 5** for fast SPA development
+- Responsive landing page sections:
+  - Hero + navigation
+  - Feature grid (AI policy capabilities)
+  - SharkLens complementary section
+  - Final conversion CTA section
+- **Vitest + Testing Library** for UI smoke tests
 
-X-axis: Likelihood (based on frequency of events)
+### Backend (`apps/backend`)
+- **Node.js + Express 4** REST API
+- **Zod** payload validation
+- Endpoints:
+  - `GET /health`
+  - `POST /api/policy/assessment` (returns recommended policy artifacts)
+  - `POST /api/consultation` (captures expert consultation requests)
+- **Node test runner** for API checks
 
-Y-axis: Impact (based on potential damage)
+### Dev Tooling
+- **npm workspaces** monorepo layout
+- **concurrently** to run frontend + backend together in development
 
-Color: Severity (green → low, yellow → medium, red → high)
+---
 
-Threat summary: Generates tables with threat type, source IP, frequency, likelihood, impact, and severity.
+## Local Development
 
-Exportable results: Save heat maps and threat summaries for reports and audits.
+```bash
+npm install
+npm run dev
+```
 
-Scalable & extensible: Easily integrate with other security dashboards or analysis tools.
+- Frontend: `http://localhost:5173`
+- Backend API: `http://localhost:4000`
 
-🔹 How It Works
+## Build
 
-Upload .pcap file from Wireshark.
+```bash
+npm run build
+```
 
-AI analyzes packet data for anomalies, suspicious behavior, and potential threats.
+## Test
 
-Threat scoring: Assigns likelihood and impact based on frequency and security context.
+```bash
+npm test
+```
 
-Visualize heat map: Automatically plots threats, highlighting critical risks.
+---
 
-Review insights: Use tables and visual cues to prioritize mitigation.
+## Suggested GitHub Repository Setup
 
-🔹 Example Output
+Create a new GitHub repository named **PolicyForge AI** (or `policyforge-ai`) and use this description:
 
-AI-generated threat heat map showing high-risk threats in red.
+> AI-powered cybersecurity policy generator with React + Node.js stack, aligned to ISO 27001 and NIST 800-53 workflows.
 
-Table of threats with frequency, likelihood, impact, and severity.
+Then push:
 
-(Add screenshots of the heat map and table here for visual appeal)
+```bash
+git remote add origin https://github.com/<your-username>/policyforge-ai.git
+git push -u origin <your-branch>
+```
+
+
+## Publish to Target GitHub Repository
+
+This repository is prepared to be pushed into:
+
+- `https://github.com/vanyasahi3227nova-arch/PolicyForge-AI`
+
+Use either:
+
+```bash
+./scripts-sync-to-policyforge.sh
+```
+
+or manually:
+
+```bash
+git remote add policyforge https://github.com/vanyasahi3227nova-arch/PolicyForge-AI.git
+git push policyforge HEAD:main
+```
+
