@@ -1,88 +1,110 @@
-🦈 SharkLens
-AI-Orchestrated Cybersecurity Intelligence from Wireshark Captures
-By: Vanya Sahi
-SharkLens Link: https://sharklens.lovable.app/
+# 🦈 SharkLens  
+### AI-Orchestrated Cybersecurity Intelligence from Wireshark Captures
+**By:Vanya Sahi**
+**Project Link**: https://sharklens.lovable.app/
+
 <p align="center">
 
-
-
-
-
-
-
-
-
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Status](https://img.shields.io/badge/status-active-success)
+![Architecture](https://img.shields.io/badge/architecture-AI%20Orchestrated-purple)
+![Domain](https://img.shields.io/badge/domain-Cybersecurity-red)
+![License](https://img.shields.io/badge/license-MIT-green)
 
 </p>
-🌊 Overview
 
-SharkLens transforms raw Wireshark packet captures (PCAP files) into structured, AI-driven cybersecurity insights.
+---
 
-Rather than analyzing packets directly, SharkLens acts as an intelligent orchestration layer that:
+## 🌊 Overview
 
-🧩 Converts PCAP files into structured JSON
+**SharkLens** is an AI-orchestrated cybersecurity intelligence platform that transforms Wireshark packet captures (PCAP files) into structured, explainable security insights.
 
-🧠 Generates forensic analysis prompts
+Rather than directly analyzing packets itself, SharkLens acts as an intelligent orchestration layer that:
 
-🤖 Delegates reasoning to ChatGPT
+- 🧩 Converts raw PCAP files into structured network data
+- 🧠 Generates structured forensic analysis prompts
+- 🤖 Delegates deep cybersecurity reasoning to ChatGPT
+- 📊 Produces professional, SOC-ready security reports
+- 🛡️ Returns severity ratings, confidence scores, and mitigation steps
 
-📊 Returns professional security reports
+SharkLens bridges the gap between **packet-level traffic** and **actionable threat intelligence**.
 
-🛡️ Provides risk scoring & mitigation guidance
+---
 
-SharkLens bridges the gap between packet-level network data and actionable threat intelligence.
+# 🎯 Product Vision
 
-🎯 Product Vision
+Modern analysts face overwhelming packet-level noise in Wireshark.
 
-Modern security teams are overwhelmed by packet-level noise.
+SharkLens exists to:
 
-SharkLens aims to:
+- ⏱ Reduce manual packet inspection time
+- 🔎 Accelerate anomaly detection workflows
+- 🧠 Introduce AI-assisted forensic reasoning
+- 📊 Provide structured and explainable threat assessments
+- 🌐 Integrate into modern SOC and research environments
 
-⏱ Reduce manual Wireshark investigation time
+---
 
-🔎 Accelerate anomaly detection workflows
+# 🏗️ System Architecture
 
-🧠 Enable AI-assisted forensic analysis
+SharkLens follows a clean **Orchestrate → Delegate → Report** design model.
 
-📊 Deliver explainable, structured insights
+It does not perform packet inspection logic internally — instead, it ensures structured and secure delegation to AI systems.
 
-🌐 Integrate seamlessly into modern SOC environments
+---
 
-🏗️ Architecture
+## 🔄 High-Level Architecture Flow
 
-SharkLens follows an Orchestrate → Delegate → Report model.
-
-🔄 High-Level Flow
+```mermaid
 flowchart LR
-    A[PCAP Upload] --> B[PCAP to JSON Parser]
-    B --> C[Structured Network Data]
-    C --> D[SharkLens Orchestrator]
-    D --> E[ChatGPT Security Analyst]
+    A[PCAP Upload] --> B[PCAP Parsing Engine]
+    B --> C[Structured JSON Network Data]
+    C --> D[SharkLens AI Orchestrator]
+    D --> E[ChatGPT Cybersecurity Analyst]
     E --> F[Threat Intelligence Report]
-    F --> G[Dashboard / Export]
-🧠 Intelligence Delegation Model
-Layer	Role
-🦈 SharkLens	Orchestrates AI prompts
-🔍 Parser	Extracts structured network flows
-🤖 ChatGPT	Performs cybersecurity reasoning
-📊 Dashboard	Displays insights
+    F --> G[Dashboard / Export Layer]
+```
 
-SharkLens does not perform analysis itself — it ensures structured, consistent AI reasoning.
+---
 
-🔍 Detailed Analysis Pipeline
+# 🧠 Intelligence Delegation Model
+
+| Component | Responsibility |
+|------------|----------------|
+| 🦈 SharkLens | Prompt orchestration & workflow control |
+| 🔍 Parser | Converts PCAP → structured JSON |
+| 🤖 ChatGPT | Performs cybersecurity reasoning |
+| 📊 Dashboard | Displays findings & recommendations |
+
+This separation ensures:
+- Transparent reasoning
+- Modular design
+- Scalability
+- Reduced AI hallucination risk
+
+---
+
+# 🔍 Detailed Processing Pipeline
+
+```mermaid
 flowchart TD
-    A[Upload PCAP] --> B[Extract Sessions]
-    B --> C[Normalize Features]
-    C --> D[Generate Structured Prompt]
-    D --> E[Forward to ChatGPT]
+    A[Upload PCAP] --> B[Extract Network Sessions]
+    B --> C[Normalize Traffic Features]
+    C --> D[Generate Structured AI Prompt]
+    D --> E[Send Prompt + Data to ChatGPT]
     E --> F[Threat Classification]
-    F --> G[Risk Scoring]
-    G --> H[Mitigation Suggestions]
-    H --> I[Visual Security Report]
-📦 Input Format
+    F --> G[Severity & Confidence Scoring]
+    G --> H[Mitigation Recommendations]
+    H --> I[Generate Structured Report]
+```
 
-SharkLens converts raw packets into structured objects:
+---
 
+# 📦 Input Format
+
+Raw packet captures are converted into structured JSON objects:
+
+```json
 {
   "timestamp": "2026-02-15T10:15:30Z",
   "src_ip": "192.168.1.10",
@@ -93,133 +115,150 @@ SharkLens converts raw packets into structured objects:
   "flags": ["SYN"],
   "packet_size": 60
 }
-Why Structured Data?
+```
 
-Improves AI reliability
+### Why Structured Data?
 
-Reduces hallucinations
+- Improves AI reliability
+- Reduces ambiguity
+- Enables consistent classification
+- Prevents raw binary transmission to AI
 
-Enables deterministic threat questioning
+---
 
-Simplifies dashboard visualization
+# 🛡️ AI Analysis Objectives
 
-🛡️ AI Analysis Objectives
+Each delegated prompt instructs ChatGPT to:
 
-Each analysis request instructs ChatGPT to:
+- 🔎 Detect anomalies in traffic patterns
+- 🧨 Classify potential attack types  
+  - Port Scanning  
+  - DoS / DDoS  
+  - Command & Control (C2)  
+  - Data Exfiltration  
+  - Malware Beaconing  
+- 🎯 Identify Indicators of Compromise (IOCs)
+- 📊 Assign Risk Levels (Low / Medium / High)
+- 📈 Provide Confidence Scores
+- 🧭 Recommend Follow-up Investigation Steps
 
-🔎 Detect anomalies
+---
 
-🧨 Classify attack types (DoS, Port Scan, C2, Exfiltration)
+# 🖥️ User Interaction Flow
 
-🎯 Identify Indicators of Compromise
-
-📊 Assign severity levels
-
-📈 Provide confidence scoring
-
-🧭 Recommend mitigation actions
-
-🖥️ User Experience Flow
+```mermaid
 sequenceDiagram
     participant User
     participant SharkLens
     participant ChatGPT
 
     User->>SharkLens: Upload PCAP
-    SharkLens->>SharkLens: Convert to JSON
-    SharkLens->>ChatGPT: Send structured analysis prompt
-    ChatGPT-->>SharkLens: Security findings
-    SharkLens-->>User: Dashboard report
-📊 Example Output
-🔎 Summary
+    SharkLens->>SharkLens: Convert PCAP to Structured JSON
+    SharkLens->>ChatGPT: Send Forensic Analysis Prompt
+    ChatGPT-->>SharkLens: Threat Intelligence Findings
+    SharkLens-->>User: Display SOC-Style Report
+```
 
-Suspicious TCP SYN burst activity consistent with reconnaissance scanning behavior.
+---
 
-🚨 Risk Level
+# 📊 Example Output
 
+## 🔎 Summary  
+Suspicious TCP SYN burst activity detected, consistent with reconnaissance scanning behavior.
+
+## 🚨 Risk Level  
 High
 
-🎯 Confidence
-
+## 🎯 Confidence  
 87%
 
-🧨 Indicators of Compromise
+## 🧨 Indicators of Compromise
+- Sequential port targeting
+- Rapid SYN packet bursts
+- Single source IP probing multiple hosts
 
-Sequential port targeting
+## 🛠 Recommended Actions
+- Block suspicious IP address
+- Correlate with endpoint telemetry
+- Review authentication logs for lateral movement
+- Monitor for repeated beaconing intervals
 
-Rapid SYN packet bursts
+---
 
-Single source scanning multiple endpoints
+# ⚙️ Core Technology Stack
 
-🛠 Recommended Actions
+- Wireshark / `tshark` for PCAP extraction
+- Structured JSON normalization layer
+- Lovable Cloud AI orchestration
+- ChatGPT for cybersecurity reasoning
+- Dashboard / reporting interface
 
-Block source IP at firewall
+---
 
-Correlate with endpoint telemetry
+# 🔐 Security Design Principles
 
-Review authentication logs
+- No raw PCAP binaries transmitted to AI
+- Structured and minimal data exposure
+- Optional IP redaction layer
+- Designed for analyst review, not autonomous blocking
+- Explainable AI outputs
 
-⚙️ Core Components
+---
 
-PCAP parsing via tshark
+# 🚀 Roadmap
 
-JSON flow normalization
+- 🧠 Multi-step forensic reasoning chains
+- 📈 Timeline reconstruction engine
+- 🌍 Threat intelligence feed integration
+- 🔁 Automated IOC enrichment
+- 📊 Executive summary mode
+- 🔌 REST API deployment support
 
-AI orchestration engine
+---
 
-Prompt engineering framework
+# 📌 Use Cases
 
-SOC-style reporting layer
+- Security Operations Centers (SOC)
+- Cybersecurity research labs
+- Academic threat analysis environments
+- Incident response simulations
+- AI-assisted network forensic workflows
 
-🔐 Security Considerations
+---
 
-No raw PCAP binaries sent to AI
+# ⚠️ Disclaimer
 
-Structured data only
+SharkLens provides AI-assisted cybersecurity insights.
 
-Optional redaction layer for sensitive IPs
+It does not replace:
+- Enterprise IDS/IPS systems
+- SIEM platforms
+- Professional forensic investigators
 
-Designed for analyst review, not automated blocking
+Human review remains essential.
 
-🚀 Future Roadmap
+---
 
-🧠 Multi-step forensic reasoning chains
-
-🌍 Threat intelligence API integration
-
-📈 Timeline reconstruction engine
-
-🛡️ Lateral movement detection prompts
-
-📊 Executive SOC reporting mode
-
-🔌 REST API deployment
-
-📌 Use Cases
-
-Security Operations Centers (SOC)
-
-Cybersecurity education labs
-
-Threat hunting workflows
-
-Incident response preparation
-
-AI-assisted forensic research
-
-⚠️ Disclaimer
-
-SharkLens provides AI-assisted analysis.
-It does not replace enterprise IDS/IPS systems or human forensic experts.
-
-🌊 Why SharkLens?
+# 🌊 Why SharkLens?
 
 Because network traffic is an ocean.
+
 And sometimes you need more than Wireshark —
-you need a lens.
+
+You need a lens.
+
+---
+
+## 📄 License
+
+MIT License
+
+---
 
 
- 
+
+
+
 
 
 
