@@ -249,12 +249,6 @@ You need a lens.
 
 ---
 
-## 📄 License
-
-MIT License
-
----
-
 
 
 
